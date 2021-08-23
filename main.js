@@ -8,8 +8,7 @@ formOne.onsubmit = function (event) {
     inputlName = document.getElementById("inputlName").value,
     inputBDay = document.getElementById("inputBDay").value,
     inputId = document.getElementById("inputId").value,
-    inputCity = document.getElementById("inputCity").value,
-    btn = document.getElementById("btn").value;
+    inputCity = document.getElementById("inputCity").value;
   var newObject = {
     Name: inputFName,
     lastName: inputlName,
@@ -25,10 +24,10 @@ formOne.onsubmit = function (event) {
     Patient.push(newObject);
   }
   console.log(Patient);
-
   displayData(Patient);
 };
 var Patient = [];
+
 // exeresie 3
 
 function checkId(array, idNewUser) {
@@ -40,22 +39,41 @@ function checkId(array, idNewUser) {
   return false;
 }
 // exeresie 4
-function displayData(myArray) {
-  var pher = document.getElementById("phar");
-  pher.innerHTML = "";
-  for (var i = 0; i < myArray.length; i++) {
-    pher.innerHTML += myArray[i].firstName + "<br>";
-    pher.innerHTML += myArray[i].LastName;
-    pher.innerHTML += myArray[i].YearOfBirth;
-  }
-}
+
 function displayData(myArray) {
   var p = document.getElementById("para");
   p.innerHTML = "";
   for (let i = 0; i < myArray.length; i++) {
     // exeresie 5
-    p.innerHTML += `name: "${myArray[i].Name}" ,last name: "${myArray[i].lastName}" ,birth-day: "${myArray[i].birthDay}" , id: "${myArray[i].id}", city: "${myArray[i].city}"`;
+    p.innerHTML += `name: "${myArray[i].Name}" ,last name: "${myArray[i].lastName}" ,birth-day: "${myArray[i].birthDay}" , id: "${myArray[i].id}", city: "${myArray[i].city}"<br>`;
   }
+} // exeresie 6
 
+oninput = function () {
+  document.getElementById("inputFName").value = document
+    .getElementById("inputFName")
+    .value.toUpperCase();
+  document.getElementById("inputlName").value = document
+    .getElementById("inputlName")
+    .value.toUpperCase();
+  document.getElementById("inputBDay").value = document
+    .getElementById("inputBDay")
+    .value.toUpperCase();
+  document.getElementById("inputId").value = document
+    .getElementById("inputId")
+    .value.toUpperCase();
+  document.getElementById("inputCity").value = document
+    .getElementById("inputCity")
+    .value.toUpperCase();
+};
+// exeresie 7
+// exeresie 7 a
+var Search = document.getElementById("Search");
+// exeresie 7 b
+function SearchByName(userSearch) {
+  for (let i = 0; i < Patient.length; i++) {
+    if (userSearch == Patient[i].Name) {
+      document.getElementById("forSearch").innerHTML = Patient[i];
+    }
+  }
 }
-// exeresie 6 
