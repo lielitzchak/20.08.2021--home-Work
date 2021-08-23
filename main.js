@@ -68,12 +68,27 @@ oninput = function () {
 };
 // exeresie 7
 // exeresie 7 a
-var Search = document.getElementById("Search");
-// exeresie 7 b
-function SearchByName(userSearch) {
+var Search = document.getElementById("Search").value,
+  forSearch = document.getElementById("forSearch");
+//! exeresie 7 b
+
+var Searchbtn = document.getElementById("Search");
+
+Searchbtn.onclick = function () {
   for (let i = 0; i < Patient.length; i++) {
-    if (userSearch == Patient[i].Name) {
-      document.getElementById("forSearch").innerHTML = Patient[i];
+    if (Search == Patient[i].Name) {
+      forSearch.innerHTML = Patient[i];
+    } else {
+      return (forSearch.innerHTML = "The patient was not found ");
     }
   }
-}
+  Searchbtn.onclick = function () {
+    for (let i = 0; i < Patient.length; i++) {
+      if (Search == Patient[i].id) {
+        forSearch.innerHTML = Patient[i];
+      } else {
+        return (forSearch.innerHTML = "The id's patient was not found ");
+      }
+    }
+  };
+};
